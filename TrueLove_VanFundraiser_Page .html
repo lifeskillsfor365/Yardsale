@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity Yard Sale — True Love for Special Need Families</title>
+  <meta name="description" content="Help True Love for Special Need Families raise $18,820 for a 15-passenger van. Shop our Charity Yard Sale in Suwanee, GA." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson:   #780E1A;
+      --crimson-d: #550910;
+      --crimson-l: #9B1A28;
+      --gold:      #C9973A;
+      --gold-l:    #F0C060;
+      --pink:      #FDECEA;
+      --pink-d:    #F8D8D4;
+      --white:     #FFFAF8;
+      --gray:      #6B6560;
+      --gray-l:    #EDE8E6;
+      --dark:      #1C1614;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--crimson);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.8rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 42px; width: 42px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.4); }
+    .nav-logo-text { font-family: 'Playfair Display', serif; color: #fff; font-size: 0.95rem; line-height: 1.2; }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 500; opacity: 0.8; letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-cta {
+      background: var(--gold); color: #fff; font-weight: 700; font-size: 0.85rem;
+      padding: 0.5rem 1.2rem; border-radius: 999px; text-decoration: none;
+      letter-spacing: 0.02em; transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold-l); color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--crimson); color: #fff;
+      padding: 4rem 2rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(201,151,58,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold-l); margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 900; line-height: 1.15;
+      margin-bottom: 1rem; max-width: 640px; margin-left: auto; margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.05rem; opacity: 0.88;
+      max-width: 520px; margin: 0 auto 2rem;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-card {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px; padding: 1.6rem 2rem; max-width: 480px;
+      margin: 0 auto 2rem; backdrop-filter: blur(6px);
+    }
+    .progress-nums { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
+    .progress-raised { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-l); }
+    .progress-goal { font-size: 0.85rem; opacity: 0.75; }
+    .progress-track { background: rgba(255,255,255,0.2); border-radius: 999px; height: 12px; overflow: hidden; margin-bottom: 0.5rem; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-l)); border-radius: 999px; width: 0%; transition: width 1.6s cubic-bezier(0.4,0,0.2,1); }
+    .progress-label { font-size: 0.78rem; opacity: 0.7; text-align: right; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+    .btn-primary {
+      background: var(--gold); color: #fff; font-weight: 700; font-size: 1rem;
+      padding: 0.8rem 2rem; border-radius: 999px; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover { background: var(--gold-l); color: var(--dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: #fff; font-weight: 600; font-size: 1rem;
+      padding: 0.8rem 2rem; border-radius: 999px; border: 2px solid rgba(255,255,255,0.5);
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+    /* ── EVENT STRIP ── */
+    .event-strip { background: var(--pink); border-top: 3px solid var(--crimson); padding: 2rem; }
+    .event-strip-inner {
+      max-width: 860px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem; text-align: center;
+    }
+    .event-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .event-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); margin-bottom: 0.2rem; }
+    .event-value { font-weight: 600; font-size: 0.95rem; color: var(--dark); }
+    .event-note { font-size: 0.8rem; color: var(--gray); margin-top: 0.1rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 3.5rem 2rem; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+    .section-body { font-size: 1rem; color: var(--gray); max-width: 620px; line-height: 1.75; }
+    .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 1.2rem; }
+
+    /* ── HOW TO HELP ── */
+    .help-section { background: #fff; }
+    .help-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+    .help-card {
+      background: var(--white); border: 1.5px solid var(--gray-l); border-radius: 14px;
+      padding: 1.6rem 1.4rem; text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .help-card:hover { border-color: var(--crimson); box-shadow: 0 4px 20px rgba(120,14,26,0.1); transform: translateY(-2px); }
+    .help-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--crimson); opacity: 0.18; line-height: 1; margin-bottom: 0.5rem; }
+    .help-title { font-weight: 700; font-size: 1.05rem; color: var(--crimson); margin-bottom: 0.5rem; }
+    .help-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+    .help-action { display: inline-block; margin-top: 1rem; font-size: 0.85rem; font-weight: 700; color: var(--crimson); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
+
+    /* ── WHAT WE ACCEPT ── */
+    .accept-section { background: var(--white); }
+    .accept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; margin-top: 1.8rem; }
+    .accept-tag { background: var(--pink); border: 1.5px solid var(--pink-d); border-radius: 10px; padding: 0.7rem 1rem; font-size: 0.9rem; font-weight: 600; color: var(--crimson); text-align: center; }
+
+    /* ── DONATE BOX ── */
+    .donate-section { background: #fff; }
+    .donate-box {
+      background: var(--crimson); color: #fff; border-radius: 18px; padding: 2.4rem 2rem;
+      margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem;
+      align-items: center; justify-content: space-between;
+    }
+    .donate-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .donate-box p { opacity: 0.85; font-size: 0.95rem; max-width: 380px; }
+
+    /* ── DONATE OPTIONS ── */
+    .donate-options { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+    .donate-opt {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--pink); border: 2px solid var(--pink-d); border-radius: 12px;
+      padding: 1.2rem 1.6rem; text-align: center; text-decoration: none; color: var(--dark);
+      transition: border-color 0.2s, box-shadow 0.2s; min-width: 140px; flex: 1;
+    }
+    .donate-opt:hover { border-color: var(--crimson); box-shadow: 0 4px 16px rgba(120,14,26,0.12); }
+    .donate-opt-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--crimson); margin-bottom: 0.3rem; }
+    .donate-opt-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); word-break: break-all; }
+    .donate-opt-detail { font-size: 0.78rem; color: var(--gray); margin-top: 0.2rem; }
+
+    /* ── SHARE ── */
+    .share-section { background: var(--pink); text-align: center; }
+    .share-btns { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.6rem; }
+    .share-btn {
+      display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem;
+      padding: 0.65rem 1.4rem; border-radius: 999px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s; color: #fff;
+    }
+    .share-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .share-fb   { background: #1877F2; }
+    .share-ig   { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .share-nd   { background: #1B8C41; }
+    .share-copy { background: var(--crimson); border: none; cursor: pointer; font-family: inherit; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,0.65); text-align: center; padding: 2.5rem 2rem; font-size: 0.85rem; }
+    footer strong { color: #fff; }
+    footer a { color: var(--gold-l); text-decoration: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1rem 0; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.82rem; }
+    .footer-links a:hover { color: var(--gold-l); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0.8rem 1.2rem; }
+      .hero { padding: 3rem 1.2rem 2.5rem; }
+      section { padding: 2.8rem 1.2rem; }
+      .donate-box { flex-direction: column; }
+      .donate-options { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.trueloveforspecialneedfamilies.com" class="nav-logo">
+    <img src="https://images.squarespace-cdn.com/content/v1/651da33c5ae2604f9b9bdbfc/2de66b3b-f07d-4b3f-9c80-49eaa1824346/Trueloveicon.png?format=100w" alt="True Love logo" />
+    <div class="nav-logo-text">
+      True Love for Special Need Families
+      <span>Van Fundraiser</span>
+    </div>
+  </a>
+  <a href="#donate-money" class="nav-cta">Donate Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://images.squarespace-cdn.com/content/v1/651da33c5ae2604f9b9bdbfc/222095c1-1780-4a11-bc87-d5ec860fae2d/Logo_1-removebg-preview.png?format=300w" alt="True Love for Special Need Families" style="height:90px; width:auto; margin-bottom:1.2rem; filter: brightness(0) invert(1);" />
+  <p class="hero-eyebrow">Charity Yard Sale · Suwanee, GA</p>
+  <h1>Help Us Get a Van for Our Adult Care Center</h1>
+  <p>True Love for Special Need Families' adult care center needs a van so our participants can enjoy more community outings, appointments, and a fuller life.</p>
+
+  <div class="progress-card">
+    <div class="progress-nums">
+      <div class="progress-raised" id="raisedAmt">$0</div>
+      <div class="progress-goal">Goal: $18,820</div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-label" id="progressLabel">Help us get there!</div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#how-to-help" class="btn-primary">How to Help</a>
+    <a href="#event" class="btn-outline">Event Details</a>
+  </div>
+</section>
+
+<!-- EVENT STRIP -->
+<div class="event-strip" id="event">
+  <div class="event-strip-inner">
+    <div class="event-item">
+      <div class="event-icon">📅</div>
+      <div class="event-label">Date</div>
+      <div class="event-value">Date TBA</div>
+      <div class="event-note">Follow us for updates</div>
+    </div>
+    <div class="event-item">
+      <div class="event-icon">🕘</div>
+      <div class="event-label">Hours</div>
+      <div class="event-value">9:00 AM – 2:00 PM</div>
+      <div class="event-note">Setup from 7:00 AM</div>
+    </div>
+    <div class="event-item">
+      <div class="event-icon">📍</div>
+      <div class="event-label">Location</div>
+      <div class="event-value">Suwanee, GA</div>
+      <div class="event-note">Address TBA</div>
+    </div>
+    <div class="event-item">
+      <div class="event-icon">📞</div>
+      <div class="event-label">Questions?</div>
+      <div class="event-value"><a href="tel:4707890509" style="color:var(--crimson);">470-789-0509</a></div>
+      <div class="event-note">Call or text us</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <div class="section-inner">
+    <p class="section-eyebrow">About the Campaign</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Why We Need This Van</h2>
+    <p class="section-body">
+      True Love for Special Need Families' adult care center needs a van to bring our participants — adults with intellectual and developmental disabilities — into the community they are a part of. Right now, limited transportation means fewer outings, missed appointments, and fewer opportunities for the people we serve to survive, enjoy, and thrive.<br><br>
+      A 15-passenger accessible van will change that. We are raising <strong>$18,820</strong> and our Charity Yard Sale is the first big push. Every item sold, every dollar donated, and every person who shows up brings us closer to the goal.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- HOW TO HELP -->
+<section class="help-section" id="how-to-help">
+  <div class="section-inner">
+    <p class="section-eyebrow">Get Involved</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Three Ways to Support</h2>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-num">1</div>
+        <div class="help-title">Come Shop</div>
+        <p class="help-desc">Browse great deals on clothing, furniture, electronics, toys, and more. Bring your friends and family — the more shoppers, the more we raise.</p>
+        <a href="#event" class="help-action">See event details →</a>
+      </div>
+      <div class="help-card">
+        <div class="help-num">2</div>
+        <div class="help-title">Donate Items</div>
+        <p class="help-desc">Have gently used items at home? Donate them to the sale. We handle the pricing and setup — you just drop them off.</p>
+        <a href="#donate-items" class="help-action">Schedule a drop-off →</a>
+      </div>
+      <div class="help-card">
+        <div class="help-num">3</div>
+        <div class="help-title">Give Directly</div>
+        <p class="help-desc">Can't make it to the sale? You can still contribute through PayPal, Zelle, check, or GoFundMe. Every dollar counts.</p>
+        <a href="#donate-money" class="help-action">Donate now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ACCEPT -->
+<section class="accept-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Yard Sale Items</p>
+    <div class="divider"></div>
+    <h2 class="section-title">What We're Selling</h2>
+    <p class="section-body">We accept all kinds of gently used items in good condition. Drop them off and we'll handle the rest!</p>
+    <div class="accept-grid">
+      <div class="accept-tag">Clothing & Shoes</div>
+      <div class="accept-tag">Toys & Games</div>
+      <div class="accept-tag">Books</div>
+      <div class="accept-tag">Kitchen Items</div>
+      <div class="accept-tag">Home Decor</div>
+      <div class="accept-tag">Electronics</div>
+      <div class="accept-tag">Small Furniture</div>
+      <div class="accept-tag">Baby Items</div>
+      <div class="accept-tag">Sporting Goods</div>
+      <div class="accept-tag">Tools</div>
+      <div class="accept-tag">Handbags</div>
+      <div class="accept-tag">Holiday Decor</div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE ITEMS -->
+<section class="donate-section" id="donate-items">
+  <div class="section-inner">
+    <p class="section-eyebrow">Drop Off Donations</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Ready to Donate Items?</h2>
+    <p class="section-body">Contact us to schedule a convenient drop-off time. We'll handle the pricing, sorting, and selling — your gently used items go directly toward our van fund.</p>
+    <div class="donate-box">
+      <div>
+        <h3>Get in Touch</h3>
+        <p>Call or text <strong>470-789-0509</strong> or email <strong>TrueLoveDayCenter@gmail.com</strong> to arrange a drop-off.</p>
+      </div>
+      <a href="tel:4707890509" class="btn-primary">Call 470-789-0509</a>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE MONEY -->
+<section id="donate-money" style="background: var(--white);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Financial Donations</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Can't Make It? Donate Directly</h2>
+    <p class="section-body">True Love for Special Need Families, Inc. is a registered 501(c)(3) nonprofit. All donations are tax-deductible. EIN: 82-4868718.</p>
+    <div class="donate-options">
+      <a href="https://www.gofundme.com/f/supporting-special-needs-families-together-n2p9c" target="_blank" class="donate-opt">
+        <span class="donate-opt-label">Online</span>
+        <span class="donate-opt-name">GoFundMe</span>
+        <span class="donate-opt-detail">Quick & easy</span>
+      </a>
+      <a href="https://www.trueloveforspecialneedfamilies.com/take-action" target="_blank" class="donate-opt">
+        <span class="donate-opt-label">Online</span>
+        <span class="donate-opt-name">PayPal</span>
+        <span class="donate-opt-detail">Via our website</span>
+      </a>
+      <div class="donate-opt" onclick="copyZelle(this)" style="cursor:pointer;">
+        <span class="donate-opt-label">Zelle</span>
+        <span class="donate-opt-name">Zelle</span>
+        <span class="donate-opt-detail" style="font-size:0.72rem; word-break:break-all;">TrueLoveDayCenter@gmail.com</span>
+        <span class="donate-opt-detail" id="zelleMsg">Tap to copy email</span>
+      </div>
+      <div class="donate-opt">
+        <span class="donate-opt-label">Check</span>
+        <span class="donate-opt-name">Mail a Check</span>
+        <span class="donate-opt-detail">Payable to: True Love for Special Need Families, Inc.<br>3905 Johns Creek Ct, Ste 250A, Suwanee, GA 30024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE -->
+<section class="share-section" id="share">
+  <div class="section-inner">
+    <p class="section-eyebrow">Help Us Spread the Word</p>
+    <div class="divider" style="margin: 0 auto 1.2rem;"></div>
+    <h2 class="section-title">Share This Page</h2>
+    <p class="section-body" style="margin: 0 auto;">Tell your friends, neighbors, and church community. One share can bring in dozens of new supporters.</p>
+    <div class="share-btns">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.trueloveforspecialneedfamilies.com/new-page" target="_blank" class="share-btn share-fb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.facebook.com/TrueLove4Hope" target="_blank" class="share-btn share-fb" style="background:#1456b0;">
+        Follow Our Page
+      </a>
+      <a href="https://nextdoor.com" target="_blank" class="share-btn share-nd">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.5c4.142 0 7.5 3.358 7.5 7.5s-3.358 7.5-7.5 7.5S4.5 16.142 4.5 12 7.858 4.5 12 4.5z"/></svg>
+        Nextdoor
+      </a>
+      <button onclick="copyLink()" class="share-btn share-copy">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="copyLabel">Copy Link</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>True Love for Special Need Families, Inc.</strong></p>
+  <p style="margin-top:0.4rem;">3905 Johns Creek Ct, Ste 250A, Suwanee, GA 30024</p>
+  <p style="margin-top:0.3rem;">
+    <a href="tel:4707890509">470-789-0509</a> &nbsp;·&nbsp;
+    <a href="mailto:TrueLoveDayCenter@gmail.com">TrueLoveDayCenter@gmail.com</a>
+  </p>
+  <div class="footer-links">
+    <a href="https://www.trueloveforspecialneedfamilies.com/">Home</a>
+    <a href="https://www.trueloveforspecialneedfamilies.com/our-program">Our Program</a>
+    <a href="https://www.trueloveforspecialneedfamilies.com/take-action">Donate</a>
+    <a href="https://www.trueloveforspecialneedfamilies.com/contact">Contact</a>
+    <a href="https://www.facebook.com/TrueLove4Hope">Facebook</a>
+    <a href="https://www.youtube.com/@truelove1108">YouTube</a>
+  </div>
+  <p style="margin-top:0.8rem; font-size:0.78rem; opacity:0.5;">
+    501(c)(3) Nonprofit · EIN 82-4868718 · Donations are tax-deductible · © 2025 True Love for Special Need Families, Inc.
+  </p>
+</footer>
+
+<script>
+  const RAISED = 0;       // ← update as funds come in
+  const GOAL   = 18820;
+  const pct    = Math.min((RAISED / GOAL) * 100, 100);
+
+  function animateValue(el, start, end, duration, prefix = '') {
+    if (end === 0) { el.textContent = prefix + '0'; return; }
+    const startTime = performance.now();
+    const update = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(start + (end - start) * ease);
+      el.textContent = prefix + current.toLocaleString();
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('progressFill').style.width = Math.max(pct, 2) + '%';
+      if (RAISED > 0) {
+        animateValue(document.getElementById('raisedAmt'), 0, RAISED, 1600, '$');
+        document.getElementById('progressLabel').textContent =
+          Math.round(pct) + '% raised — $' + (GOAL - RAISED).toLocaleString() + ' still needed';
+      } else {
+        document.getElementById('raisedAmt').textContent = 'Let\'s go!';
+        document.getElementById('progressLabel').textContent = 'Goal: $18,820 — be the first to contribute!';
+      }
+    }, 400);
+  });
+
+  function copyZelle(el) {
+    navigator.clipboard.writeText('TrueLoveDayCenter@gmail.com').then(() => {
+      const msg = document.getElementById('zelleMsg');
+      msg.textContent = 'Copied! Open Zelle and paste this email';
+      setTimeout(() => msg.textContent = 'Tap to copy email address', 3000);
+    });
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const label = document.getElementById('copyLabel');
+      label.textContent = 'Copied!';
+      setTimeout(() => label.textContent = 'Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
