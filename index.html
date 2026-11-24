@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charity Yard Sale — True Love for Special Need Families</title>
-  <meta name="description" content="Help True Love for Special Need Families raise $18,820 for a 15-passenger van. Shop our Charity Yard Sale in Suwanee, GA." />
+  <meta name="description" content="Help True Love for Special Need Families raise $30,000 for a 15-passenger van. Shop our Charity Yard Sale in Suwanee, GA." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -439,7 +439,7 @@
 </footer>
 
 <script>
-  const RAISED = 11180;   // ← update as funds come in
+  const RAISED = 21000;   // ← update as funds come in
   const GOAL   = 30000;
   const pct    = Math.min((RAISED / GOAL) * 100, 100);
 
@@ -466,7 +466,7 @@
           Math.round(pct) + '% raised — $' + (GOAL - RAISED).toLocaleString() + ' still needed';
       } else {
         document.getElementById('raisedAmt').textContent = 'Let\'s go!';
-        document.getElementById('progressLabel').textContent = 'Goal: $18,820 — be the first to contribute!';
+        document.getElementById('progressLabel').textContent = 'Goal: $30,000 — be the first to contribute!';
       }
     }, 400);
   });
